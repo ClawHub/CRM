@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clawhub.crm.mapper.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.clawhub.crm.entity.Department" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="deletestate" property="deletestate" jdbcType="CHAR" />
+    <result column="department_id" property="departmentId" jdbcType="VARCHAR" />
+    <result column="department_name" property="departmentName" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="forefather_id" property="forefatherId" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>
