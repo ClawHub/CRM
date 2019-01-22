@@ -15,9 +15,8 @@ public interface SysResourceService {
      * 新增菜单按钮资源
      *
      * @param sysResource 菜单按钮资源
-     * @return 返回信息
      */
-    String add(SysResource sysResource);
+    void add(SysResource sysResource);
 
     /**
      * 资源查看，树形展示

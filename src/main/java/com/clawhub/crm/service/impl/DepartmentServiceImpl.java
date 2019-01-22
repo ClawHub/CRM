@@ -4,6 +4,7 @@ import com.clawhub.crm.entity.Department;
 import com.clawhub.crm.mapper.DepartmentMapper;
 import com.clawhub.crm.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,9 +14,11 @@ import java.util.List;
  * @author DaShi<br>
  * @CreateDate 2019-01-22 14:47 <br>
  */
+@Service
 public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
-    DepartmentMapper departmentMapper;
+    private DepartmentMapper departmentMapper;
+
     @Override
     public String add(Department department) {
         department.setId("");

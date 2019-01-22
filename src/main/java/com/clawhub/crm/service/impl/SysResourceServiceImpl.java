@@ -29,13 +29,10 @@ public class SysResourceServiceImpl implements SysResourceService {
      * @return 返回信息
      */
     @Override
-    public String add(SysResource sysResource) {
+    public void add(SysResource sysResource) {
         sysResource.setId("");
         sysResource.setResourceId("sysRe" + "" + "");
         sysResourceMapper.insert(sysResource);
-
-
-        return null;
     }
 
     /**

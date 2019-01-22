@@ -8,6 +8,7 @@ import com.clawhub.crm.mapper.SysUserMapper;
 import com.clawhub.crm.mapper.UserResourceMapper;
 import com.clawhub.crm.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * <Description>SysUserServiceimpl<br>
@@ -15,17 +16,27 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author DaShi<br>
  * @CreateDate 2019-01-22 16:56 <br>
  */
-public class SysUserServiceimpl implements SysUserService {
+@Service
+public class SysUserServiceImpl implements SysUserService {
     @Autowired
-    SysUserMapper sysUserMapper;
+    private SysUserMapper sysUserMapper;
     @Autowired
-    EmployeeDepartmentMapper employeeDepartmentMapper;
+    private EmployeeDepartmentMapper employeeDepartmentMapper;
     @Autowired
-    UserResourceMapper userResourceMapper;
+    private UserResourceMapper userResourceMapper;
 
     @Override
-    public int signUp(SysUser sysUser) {
-        return sysUserMapper.insert(sysUser);
+    public String signUp(SysUser sysUser) {
+        //TODO 防止重复数据
+//        if () {
+//            return "";
+//        }
+        //数据补充
+//        sysUser.setId();
+
+        //入库
+        sysUserMapper.insert(sysUser);
+        return "1000";
     }
 
     @Override

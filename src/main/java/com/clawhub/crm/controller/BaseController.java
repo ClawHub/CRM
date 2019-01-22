@@ -1,5 +1,6 @@
 package com.clawhub.crm.controller;
 
+import com.clawhub.crm.core.result.ResultUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("base")
 public class BaseController {
 
+    /**
+     * Welcome string.
+     *
+     * @return the string
+     */
     @GetMapping("welcome")
     public String welcome() {
-        return "welcome to crm!";
+        return ResultUtil.getSucc();
     }
 }

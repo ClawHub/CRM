@@ -1,10 +1,10 @@
 package com.clawhub.crm.controller;
 
+import com.clawhub.crm.core.result.ResultUtil;
 import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.entity.SysUser;
 import com.clawhub.crm.entity.UserResource;
 import com.clawhub.crm.service.SysUserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,47 +17,46 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("sysUser")
 public class SysUserController {
-    @Autowired
-    SysUserService sysUserService;
-    @Autowired
-    EmployeeDepartment employeeDepartment;
-    @Autowired
-    UserResource userResource;
 
+    /**
+     * The Sys user service.
+     */
+    @Autowired
+    private SysUserService sysUserService;
+
+    /**
+     * 注册
+     *
+     * @param sysUser the sys user
+     * @return the int
+     */
     @PostMapping("signUp")
-    int signUp(@RequestBody SysUser sysuser){
+    public String signUp(@RequestBody SysUser sysUser) {
         //校验注册的用户名密码是否合法
-
-        return sysUserService.signUp(sysuser);
+        if (null == sysUser) {
+            return ResultUtil.getError("2001");
+        }
+        return ResultUtil.getSucc(sysUserService.signUp(sysUser));
     }
 
 
-    @GetMapping("signIn")
-    String signIn(@RequestBody String name,String password){
-        //校验用户名是否存在
+//    /**
+//     * 登陆
+//     *
+//     * @param name     the name
+//     * @param password the password
+//     * @return the string
+//     */
+//    @GetMapping("signIn")
+//    public String signIn(@RequestBody String name, String password) {
+//        //校验用户名是否存在
+//
+//        return sysUserService.signIn(name, password);
+//    }
 
-        return sysUserService.signIn(name,password);
-    }
-
-    @PostMapping("signOut")
-    void signOut(){
-
-    }
-
-    @PostMapping("updateUserInfo")
-    int updateUserInfo(@RequestBody SysUser sysUser){
-
-        return sysUserService.updateUserInfo(sysUser);
-    }
-
-    @PostMapping("updateUserDepartment")
-    int updateUserDepartment(@RequestBody EmployeeDepartment employeeDepartment){
-        return sysUserService.updateUserDepartment(employeeDepartment);
-    }
-
-    @PostMapping("updateUserResource")
-    int updateDepartment(@RequestBody UserResource userResource){
-        return sysUserService.updateUserResource(userResource);
-    }
+//    @PostMapping("signOut")
+//    public void signOut() {
+//
+//    }
 
 }

@@ -2,7 +2,9 @@ package com.clawhub.crm.service;
 
 import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.entity.SysUser;
-import com.clawhub.crm.entity.UserResource; /**
+import com.clawhub.crm.entity.UserResource;
+
+/**
  * <Description>SysUserService<br>
  *
  * @author DaShi<br>
@@ -13,22 +15,25 @@ public interface SysUserService {
 
     /**
      * 用户注册
+     *
      * @param sysuser
      * @return
      */
-    int signUp(SysUser sysuser);
+    String signUp(SysUser sysuser);
 
 
     /**
      * 登录
+     *
      * @param name 用户名
      * @return
      */
-    String signIn(String name,String password);
+    String signIn(String name, String password);
 
 
     /**
      * 更新员工信息
+     *
      * @param sysUser
      * @return
      */
@@ -37,6 +42,7 @@ public interface SysUserService {
 
     /**
      * 更新员工部门
+     *
      * @param employeeDepartment
      * @return
      */
@@ -45,6 +51,7 @@ public interface SysUserService {
 
     /**
      * 划分员工资源
+     *
      * @param userResource
      * @return
      */
