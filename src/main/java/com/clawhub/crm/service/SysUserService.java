@@ -4,6 +4,8 @@ import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.entity.SysUser;
 import com.clawhub.crm.entity.UserResource;
 
+import java.util.List;
+
 /**
  * <Description>系统用户接口<br>
  *
@@ -52,8 +54,15 @@ public interface SysUserService {
     /**
      * 划分员工资源
      *
-     * @param userResource  员工资源关系
+     * @param userResource 员工资源关系
      * @return
      */
     int updateUserResource(UserResource userResource);
+
+    /**
+     * 获取所有用户名
+     *
+     * @return 所有用户名
+     */
+    List<String> getAllUserName();
 }
