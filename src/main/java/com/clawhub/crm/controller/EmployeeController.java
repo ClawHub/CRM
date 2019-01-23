@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <Description> 员工信息<br>
+ * <Description> 员工信息网关<br>
  *
  * @author ClawHub<br>
  * @version 1.0<br>
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 
     /**
-     * The Employee service.
+     * 员工信息接口.
      */
     @Autowired
     private EmployeeService employeeService;
@@ -44,10 +44,10 @@ public class EmployeeController {
 
 
     /**
-     * Sets employee department.
+     * 员工部门划分
      *
-     * @param employeeId   the employee id
-     * @param departmentId the department id
+     * @param employeeId   员工id
+     * @param departmentId 部门id
      * @return the employee department
      */
     @PostMapping("setEmployeeDepartment")

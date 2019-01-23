@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * <Description>SysUserController<br>
+ * <Description>系统用户网关<br>
  *
  * @author DaShi<br>
  * @CreateDate 2019-01-22 15:41 <br>
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class SysUserController {
 
     /**
-     * The Sys user service.
+     * 系统用户服务接口
      */
     @Autowired
     private SysUserService sysUserService;
@@ -27,7 +27,7 @@ public class SysUserController {
     /**
      * 注册
      *
-     * @param sysUser the sys user
+     * @param sysUser 用户信息
      * @return the int
      */
     @PostMapping("signUp")

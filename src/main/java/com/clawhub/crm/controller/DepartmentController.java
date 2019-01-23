@@ -16,9 +16,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("department")
 public class DepartmentController {
+
+    /**
+     * 部门接口.
+     */
     @Autowired
     private DepartmentService departmentService;
 
+    /**
+     * 新增部门
+     *
+     * @param department 新增部门
+     * @return the string
+     */
     @PostMapping("add")
     public String add(@RequestBody Department department) {
         //判空校验
@@ -30,6 +40,11 @@ public class DepartmentController {
         return ResultUtil.getSucc();
     }
 
+    /**
+     * 查看部门树
+     *
+     * @return 部门树
+     */
     @GetMapping("view")
     public String view() {
         return ResultUtil.getSucc(departmentService.view());
