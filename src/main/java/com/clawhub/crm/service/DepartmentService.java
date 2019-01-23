@@ -4,7 +4,7 @@ import com.clawhub.crm.entity.Department;
 import com.clawhub.crm.entity.SysResource;
 
 /**
- * <Description>DepartmentService<br>
+ * <Description>部门信息接口<br>
  *
  * @author DaShi<br>
  * @CreateDate 2019-01-22 14:31 <br>

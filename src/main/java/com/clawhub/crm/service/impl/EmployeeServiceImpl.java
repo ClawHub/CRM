@@ -5,6 +5,7 @@ import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.mapper.EmployeeDepartmentMapper;
 import com.clawhub.crm.mapper.EmployeeMapper;
 import com.clawhub.crm.service.EmployeeService;
+import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +42,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void updateEmployee(Employee employee, String userId) {
         //设置用户ID
         employee.setUserId(userId);
+        //设置员工ID
+        employee.setEmployeeId(IDGenerator.getEmployeeID());
         //在员工表中插入数据
         employeeMapper.insert(employee);
 

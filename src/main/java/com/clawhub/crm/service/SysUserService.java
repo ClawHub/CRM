@@ -5,7 +5,7 @@ import com.clawhub.crm.entity.SysUser;
 import com.clawhub.crm.entity.UserResource;
 
 /**
- * <Description>SysUserService<br>
+ * <Description>系统用户接口<br>
  *
  * @author DaShi<br>
  * @CreateDate 2019-01-22 15:56 <br>
@@ -16,7 +16,7 @@ public interface SysUserService {
     /**
      * 用户注册
      *
-     * @param sysuser
+     * @param sysuser 系统用户信息
      * @return
      */
     String signUp(SysUser sysuser);
@@ -34,7 +34,7 @@ public interface SysUserService {
     /**
      * 更新员工信息
      *
-     * @param sysUser
+     * @param sysUser 系统用户信息
      * @return
      */
     int updateUserInfo(SysUser sysUser);
@@ -43,7 +43,7 @@ public interface SysUserService {
     /**
      * 更新员工部门
      *
-     * @param employeeDepartment
+     * @param employeeDepartment 员工部门关系
      * @return
      */
     int updateUserDepartment(EmployeeDepartment employeeDepartment);
@@ -52,7 +52,7 @@ public interface SysUserService {
     /**
      * 划分员工资源
      *
-     * @param userResource
+     * @param userResource  员工资源关系
      * @return
      */
     int updateUserResource(UserResource userResource);

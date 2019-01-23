@@ -3,6 +3,7 @@ package com.clawhub.crm.service.impl;
 import com.clawhub.crm.entity.SysResource;
 import com.clawhub.crm.mapper.SysResourceMapper;
 import com.clawhub.crm.service.SysResourceService;
+import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,9 @@ public class SysResourceServiceImpl implements SysResourceService {
      */
     @Override
     public void add(SysResource sysResource) {
-        sysResource.setId("");
-        sysResource.setResourceId("sysRe" + "" + "");
+        String id = IDGenerator.getID();
+        sysResource.setId(id);
+        sysResource.setResourceId("sysRe" + id);
         sysResourceMapper.insert(sysResource);
     }
 
@@ -44,7 +46,6 @@ public class SysResourceServiceImpl implements SysResourceService {
     public String view() {
         List<SysResource> list = sysResourceMapper.selectAll();
         //list --> tree
-
         return null;
     }
 }
