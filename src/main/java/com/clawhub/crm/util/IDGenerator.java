@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 public class IDGenerator {
     /**
-     * Get id string.
+     * Get id strings.
      *
      * @return the string
      */
