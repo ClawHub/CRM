@@ -2,7 +2,6 @@ package com.clawhub.crm.service;
 
 import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.entity.SysUser;
-import com.clawhub.crm.entity.UserResource;
 
 import java.util.List;
 
