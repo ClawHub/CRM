@@ -3,7 +3,7 @@
 <mapper namespace="com.clawhub.crm.mapper.EmployeeMapper" >
   <resultMap id="BaseResultMap" type="com.clawhub.crm.entity.Employee" >
     <!--
-      WARNING - @mbggenerated
+      WARNING - @mbg.generated
     -->
     <result column="id" property="id" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
@@ -11,7 +11,7 @@
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
     <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="deletestate" property="deletestate" jdbcType="CHAR" />
+    <result column="delete" property="delete" jdbcType="BIT" />
     <result column="employee_id" property="employeeId" jdbcType="VARCHAR" />
     <result column="employee_name" property="employeeName" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />

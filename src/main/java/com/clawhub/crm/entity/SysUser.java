@@ -43,7 +43,7 @@ public class SysUser {
     /**
      * 删除状态 0:未删除 1:已删除
      */
-    private String deletestate;
+    private Boolean delete;
 
     /**
      * 用户id
@@ -67,7 +67,7 @@ public class SysUser {
      * 用户状态0:启用 1:禁用
      */
     @Column(name = "user_state")
-    private String userState;
+    private Boolean userState;
 
     /**
      * 盐
@@ -185,19 +185,19 @@ public class SysUser {
     /**
      * 获取删除状态 0:未删除 1:已删除
      *
-     * @return deletestate - 删除状态 0:未删除 1:已删除
+     * @return delete - 删除状态 0:未删除 1:已删除
      */
-    public String getDeletestate() {
-        return deletestate;
+    public Boolean getDelete() {
+        return delete;
     }
 
     /**
      * 设置删除状态 0:未删除 1:已删除
      *
-     * @param deletestate 删除状态 0:未删除 1:已删除
+     * @param delete 删除状态 0:未删除 1:已删除
      */
-    public void setDeletestate(String deletestate) {
-        this.deletestate = deletestate;
+    public void setDelete(Boolean delete) {
+        this.delete = delete;
     }
 
     /**
@@ -259,7 +259,7 @@ public class SysUser {
      *
      * @return user_state - 用户状态0:启用 1:禁用
      */
-    public String getUserState() {
+    public Boolean getUserState() {
         return userState;
     }
 
@@ -268,7 +268,7 @@ public class SysUser {
      *
      * @param userState 用户状态0:启用 1:禁用
      */
-    public void setUserState(String userState) {
+    public void setUserState(Boolean userState) {
         this.userState = userState;
     }
 

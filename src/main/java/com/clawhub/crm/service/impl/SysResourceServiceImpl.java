@@ -1,11 +1,14 @@
 package com.clawhub.crm.service.impl;
 
+import com.clawhub.crm.entity.SysResource;
+import com.clawhub.crm.mapper.SysResourceMapper;
 import com.clawhub.crm.service.SysResourceService;
 import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * <Description> 资源服务接口实现<br>
@@ -44,6 +47,27 @@ public class SysResourceServiceImpl implements SysResourceService {
     public String view() {
         List<SysResource> list = sysResourceMapper.selectAll();
         //list --> tree
+        return null;
+    }
+
+    /**
+     * 根据用户ID获取权限列表
+     *
+     * @param userId 用户ID
+     * @return 用户ID
+     */
+    @Override
+    public Set<SysResource> findSysResourcesByUserId(String userId) {
+        return null;
+    }
+
+    /**
+     * 获取所有权限
+     *
+     * @return 所有权限
+     */
+    @Override
+    public List<SysResource> getAllResource() {
         return null;
     }
 }

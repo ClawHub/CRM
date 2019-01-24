@@ -1,5 +1,7 @@
 package com.clawhub.crm.service.impl;
 
+import com.clawhub.crm.entity.Department;
+import com.clawhub.crm.mapper.DepartmentMapper;
 import com.clawhub.crm.service.DepartmentService;
 import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     /**
      * 资源查看，树形展示
+     *
      * @return 部门树形图
      */
     @Override

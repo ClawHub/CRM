@@ -1,5 +1,7 @@
 package com.clawhub.crm.service;
 
+import com.clawhub.crm.entity.Employee;
+
 /**
  * <Description> 员工服务接口<br>
  *

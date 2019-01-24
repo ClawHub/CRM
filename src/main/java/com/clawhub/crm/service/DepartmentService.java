@@ -1,5 +1,7 @@
 package com.clawhub.crm.service;
 
+import com.clawhub.crm.entity.Department;
+
 /**
  * <Description>部门信息接口<br>
  *

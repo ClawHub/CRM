@@ -1,6 +1,7 @@
 package com.clawhub.crm.controller;
 
 import com.clawhub.crm.core.result.ResultUtil;
+import com.clawhub.crm.entity.SysResource;
 import com.clawhub.crm.service.SysResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

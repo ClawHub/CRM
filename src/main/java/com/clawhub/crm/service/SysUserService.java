@@ -1,5 +1,8 @@
 package com.clawhub.crm.service;
 
+import com.clawhub.crm.entity.EmployeeDepartment;
+import com.clawhub.crm.entity.SysUser;
+
 import java.util.List;
 
 /**
@@ -46,19 +49,18 @@ public interface SysUserService {
      */
     int updateUserDepartment(EmployeeDepartment employeeDepartment);
 
-
-    /**
-     * 划分员工资源
-     *
-     * @param userResource 员工资源关系
-     * @return
-     */
-    int updateUserResource(UserResource userResource);
-
     /**
      * 获取所有用户名
      *
      * @return 所有用户名
      */
     List<String> getAllUserName();
+
+    /**
+     * 根据用户名获取用户信息
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    SysUser findByUsername(String username);
 }

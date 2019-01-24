@@ -1,6 +1,7 @@
 package com.clawhub.crm.controller;
 
 import com.clawhub.crm.core.result.ResultUtil;
+import com.clawhub.crm.entity.Employee;
 import com.clawhub.crm.service.EmployeeService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

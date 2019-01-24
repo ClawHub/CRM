@@ -1,6 +1,10 @@
 package com.clawhub.crm.service.impl;
 
 import com.clawhub.crm.core.userpool.SysUserNamePool;
+import com.clawhub.crm.entity.EmployeeDepartment;
+import com.clawhub.crm.entity.SysUser;
+import com.clawhub.crm.mapper.EmployeeDepartmentMapper;
+import com.clawhub.crm.mapper.SysUserMapper;
 import com.clawhub.crm.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,11 +31,6 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Autowired
     private EmployeeDepartmentMapper employeeDepartmentMapper;
-    /**
-     * The User resource mapper.
-     */
-    @Autowired
-    private UserResourceMapper userResourceMapper;
     /**
      * The Sys user userpool.
      */
@@ -101,16 +100,6 @@ public class SysUserServiceImpl implements SysUserService {
         return employeeDepartmentMapper.updateByPrimaryKey(employeeDepartment);
     }
 
-    /**
-     * 更新用户资源
-     *
-     * @param userResource 员工资源关系
-     * @return
-     */
-    @Override
-    public int updateUserResource(UserResource userResource) {
-        return userResourceMapper.updateByPrimaryKey(userResource);
-    }
 
     /**
      * 获取所有用户名
@@ -120,5 +109,16 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public List<String> getAllUserName() {
         return sysUserMapper.getAllUserName();
+    }
+
+    /**
+     * 根据用户名获取用户信息
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    @Override
+    public SysUser findByUsername(String username) {
+        return null;
     }
 }

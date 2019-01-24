@@ -1,9 +1,13 @@
 package com.clawhub.crm.controller;
 
 import com.clawhub.crm.core.result.ResultUtil;
+import com.clawhub.crm.entity.SysUser;
 import com.clawhub.crm.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <Description>系统用户网关<br>

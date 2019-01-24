@@ -43,7 +43,7 @@ public class Employee {
     /**
      * 删除状态 0:未删除 1:已删除
      */
-    private String deletestate;
+    private Boolean delete;
 
     /**
      * 员工id
@@ -185,19 +185,19 @@ public class Employee {
     /**
      * 获取删除状态 0:未删除 1:已删除
      *
-     * @return deletestate - 删除状态 0:未删除 1:已删除
+     * @return delete - 删除状态 0:未删除 1:已删除
      */
-    public String getDeletestate() {
-        return deletestate;
+    public Boolean getDelete() {
+        return delete;
     }
 
     /**
      * 设置删除状态 0:未删除 1:已删除
      *
-     * @param deletestate 删除状态 0:未删除 1:已删除
+     * @param delete 删除状态 0:未删除 1:已删除
      */
-    public void setDeletestate(String deletestate) {
-        this.deletestate = deletestate;
+    public void setDelete(Boolean delete) {
+        this.delete = delete;
     }
 
     /**

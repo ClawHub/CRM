@@ -1,5 +1,10 @@
 package com.clawhub.crm.service;
 
+import com.clawhub.crm.entity.SysResource;
+
+import java.util.List;
+import java.util.Set;
+
 /**
  * <Description> 资源服务接口<br>
  *
@@ -23,4 +28,18 @@ public interface SysResourceService {
      */
     String view();
 
+    /**
+     * 根据用户ID获取权限列表
+     *
+     * @param userId 用户ID
+     * @return 用户ID
+     */
+    Set<SysResource> findSysResourcesByUserId(String userId);
+
+    /**
+     * 获取所有权限
+     *
+     * @return 所有权限
+     */
+    List<SysResource> getAllResource();
 }
