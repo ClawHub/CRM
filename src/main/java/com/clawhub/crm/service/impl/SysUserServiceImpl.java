@@ -1,9 +1,6 @@
 package com.clawhub.crm.service.impl;
 
 import com.clawhub.crm.core.userpool.SysUserNamePool;
-import com.clawhub.crm.entity.EmployeeDepartment;
-import com.clawhub.crm.entity.SysUser;
-import com.clawhub.crm.mapper.EmployeeDepartmentMapper;
 import com.clawhub.crm.mapper.SysUserMapper;
 import com.clawhub.crm.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;

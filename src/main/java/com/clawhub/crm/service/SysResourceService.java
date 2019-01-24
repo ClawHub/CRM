@@ -1,7 +1,5 @@
 package com.clawhub.crm.service;
 
-import com.clawhub.crm.entity.SysResource;
-
 /**
  * <Description> 资源服务接口<br>
  *

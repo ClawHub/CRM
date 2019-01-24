@@ -1,8 +1,6 @@
 package com.clawhub.crm.controller;
 
 import com.clawhub.crm.core.result.ResultUtil;
-import com.clawhub.crm.entity.Department;
-import com.clawhub.crm.entity.EmployeeDepartment;
 import com.clawhub.crm.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

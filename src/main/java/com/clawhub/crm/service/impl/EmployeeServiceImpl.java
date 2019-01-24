@@ -1,9 +1,5 @@
 package com.clawhub.crm.service.impl;
 
-import com.clawhub.crm.entity.Employee;
-import com.clawhub.crm.entity.EmployeeDepartment;
-import com.clawhub.crm.mapper.EmployeeDepartmentMapper;
-import com.clawhub.crm.mapper.EmployeeMapper;
 import com.clawhub.crm.service.EmployeeService;
 import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
