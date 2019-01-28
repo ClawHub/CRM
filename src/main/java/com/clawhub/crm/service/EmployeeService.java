@@ -26,4 +26,13 @@ public interface EmployeeService {
      * @param departmentId 部门ID
      */
     void setEmployeeDepartment(String employeeId, String departmentId);
+
+    /**
+     * 根据部门ID和职位获取员工信息
+     *
+     * @param title        职位
+     * @param departmentId 部门ID
+     * @return 员工信息
+     */
+    Employee queryEmployeeByTitleAndDepartmentId(String title, String departmentId);
 }

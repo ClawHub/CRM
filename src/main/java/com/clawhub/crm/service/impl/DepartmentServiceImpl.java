@@ -44,4 +44,15 @@ public class DepartmentServiceImpl implements DepartmentService {
         //list --> tree
         return null;
     }
+
+    /**
+     * 获取员工所属部门信息
+     *
+     * @param employeeId 员工ID
+     * @return 所属部门信息
+     */
+    @Override
+    public Department queryDepartment(String employeeId) {
+        return null;
+    }
 }

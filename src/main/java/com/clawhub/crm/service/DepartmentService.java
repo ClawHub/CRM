@@ -23,4 +23,13 @@ public interface DepartmentService {
      * @return 资源树
      */
     String view();
+
+
+    /**
+     * 获取员工所属部门信息
+     *
+     * @param employeeId 员工ID
+     * @return 所属部门信息
+     */
+    Department queryDepartment(String employeeId);
 }

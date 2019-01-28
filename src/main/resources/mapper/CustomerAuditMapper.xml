@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clawhub.crm.mapper.CustomerAuditMapper">
+    <resultMap id="BaseResultMap" type="com.clawhub.crm.entity.CustomerAudit">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
+        <result column="update_user" property="updateUser" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="delete" property="delete" jdbcType="BIT"/>
+        <result column="audit_id" property="auditId" jdbcType="VARCHAR"/>
+        <result column="apply_id" property="applyId" jdbcType="VARCHAR"/>
+        <result column="audit_state" property="auditState" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="batchAddCustomerAudit"></insert>
+    <update id="audit"></update>
+</mapper>
