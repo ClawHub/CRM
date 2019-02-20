@@ -1,5 +1,6 @@
 package com.clawhub.crm.controller;
 
+import com.clawhub.crm.core.result.ResultUtil;
 import com.clawhub.crm.entity.Customer;
 import com.clawhub.crm.entity.CustomerAudit;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
@@ -34,32 +35,36 @@ public class CustomerController {
     /**
      * Add string.
      *
-     * @param customer the customer
+     * @param customer        the customer
+     * @param applyEmployeeId the apply employee id
+     * @param auditEmployeeId the audit employee id
      * @return the string
      */
     @PostMapping("add")
-    public String add(Customer customer) {
+    public String add(Customer customer, String applyEmployeeId, String auditEmployeeId) {
         //校验
-
+        if (customer != null) {
+            return "";
+        }
         //调用服务
-        customerService.addCustomers(Collections.singletonList(customer));
+        customerService.addCustomers(Collections.singletonList(customer), applyEmployeeId, auditEmployeeId);
         return "";
     }
 
     /**
-     * Apply customer list string.
+     * 查看申请添加的客户列表
+     * 业务员调用
      *
      * @param queryCustomerVO the query customer vo
      * @return the string
      */
     @PostMapping("queryApplyCustomerList")
     public String queryApplyCustomerList(QueryCustomerVO queryCustomerVO) {
-        List<Customer> customers = customerService.queryApplyCustomerList(queryCustomerVO);
-        return "";
+        return ResultUtil.getSucc(customerService.queryApplyCustomerList(queryCustomerVO));
     }
 
     /**
-     * Audit customer list string.
+     * 查看审核客户
      *
      * @param queryCustomerVO the query customer vo
      * @return the string
@@ -70,6 +75,12 @@ public class CustomerController {
         return "";
     }
 
+    /**
+     * 审核
+     *
+     * @param customerAudit the customer audit
+     * @return the string
+     */
     @PostMapping("audit")
     public String audit(CustomerAudit customerAudit) {
         //校验

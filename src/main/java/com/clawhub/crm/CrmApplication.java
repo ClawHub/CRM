@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  * The type Crm application.
  */
 @SpringBootApplication
-@MapperScan("com.clawhub.crm.mapper")
+@MapperScan({"com.clawhub.crm.mapper", "com.clawhub.crm.mapper.mutiple"})
 @EnableTransactionManagement
 public class CrmApplication {
 

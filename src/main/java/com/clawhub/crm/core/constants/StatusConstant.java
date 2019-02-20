@@ -31,12 +31,12 @@ public class StatusConstant {
     /**
      * 删除状态
      */
-    public static final String DELETED = "1";
+    public static final boolean DELETED = true;
 
     /**
      * 未删除状态
      */
-    public static final String UN_DELETED = "0";
+    public static final boolean UN_DELETED = false;
 
     /**
      * 锁定状态
@@ -47,5 +47,20 @@ public class StatusConstant {
      * 未锁定状态
      */
     public static final String UN_LOCKED = "0";
+
+    /**
+     * 0:待审核
+     */
+    public static final String AUDIT_STATE_PENDING = "0";
+
+    /**
+     * 1:已通过
+     */
+    public static final String AUDIT_STATE_SUCCESS = "1";
+
+    /**
+     * 2:未通过
+     */
+    public static final String AUDIT_STATE_FAIL = "2";
 
 }

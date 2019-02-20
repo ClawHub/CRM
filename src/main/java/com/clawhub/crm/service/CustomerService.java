@@ -2,6 +2,7 @@ package com.clawhub.crm.service;
 
 import com.clawhub.crm.entity.Customer;
 import com.clawhub.crm.entity.CustomerAudit;
+import com.clawhub.crm.entity.bean.CustomerBean;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
 
 import java.util.List;
@@ -18,9 +19,11 @@ public interface CustomerService {
     /**
      * 批量添加客户
      *
-     * @param customers 客户信息
+     * @param customers       客户信息
+     * @param applyEmployeeId 申请员工ID
+     * @param auditEmployeeId 审核员工ID
      */
-    void addCustomers(List<Customer> customers);
+    void addCustomers(List<Customer> customers, String applyEmployeeId, String auditEmployeeId);
 
     /**
      * 获取能看到的客户信息
@@ -33,7 +36,7 @@ public interface CustomerService {
      * @param queryCustomerVO 查询过滤
      * @return
      */
-    List<Customer> queryApplyCustomerList(QueryCustomerVO queryCustomerVO);
+    List<CustomerBean> queryApplyCustomerList(QueryCustomerVO queryCustomerVO);
 
     /**
      * 查看审核（待，审核成功，审核失败）客户列表
