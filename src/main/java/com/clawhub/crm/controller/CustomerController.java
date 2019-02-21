@@ -2,17 +2,16 @@ package com.clawhub.crm.controller;
 
 import com.clawhub.crm.core.result.ResultUtil;
 import com.clawhub.crm.entity.Customer;
-import com.clawhub.crm.entity.CustomerAudit;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
 import com.clawhub.crm.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
-import java.util.List;
 
 /**
  * <Description> 客户网关<br>
@@ -71,33 +70,32 @@ public class CustomerController {
      */
     @PostMapping("queryAuditCustomerList")
     public String queryAuditCustomerList(QueryCustomerVO queryCustomerVO) {
-        List<Customer> customers = customerService.queryAuditCustomerList(queryCustomerVO);
-        return "";
+        return ResultUtil.getSucc(customerService.queryAuditCustomerList(queryCustomerVO));
     }
 
     /**
      * 审核
      *
-     * @param customerAudit the customer audit
+     * @param queryCustomerVO the customer audit
      * @return the string
      */
     @PostMapping("audit")
-    public String audit(CustomerAudit customerAudit) {
+    public String audit(QueryCustomerVO queryCustomerVO) {
         //校验
-        customerService.audit(customerAudit);
-        return "";
+        customerService.audit(queryCustomerVO);
+        return ResultUtil.getSucc();
     }
 
-//    /**
-//     * 先不做
-//     *
-//     * @return the string
-//     */
-//    @GetMapping("viewCustomer")
-//    public String viewCustomer() {
-//        customerService.viewCustomer();
-//        return "";
-//    }
+    /**
+     * 先不做
+     *
+     * @return the string
+     */
+    @GetMapping("viewCustomer")
+    public String viewCustomer() {
+        customerService.viewCustomer();
+        return "";
+    }
 
     /**
      * Batch add string.

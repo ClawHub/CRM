@@ -49,7 +49,7 @@ public interface CustomerService {
     /**
      * 审核客户
      *
-     * @param customerAudit 审核信息
+     * @param queryCustomerVO 审核信息
      */
-    void audit(CustomerAudit customerAudit);
+    void audit(QueryCustomerVO queryCustomerVO);
 }

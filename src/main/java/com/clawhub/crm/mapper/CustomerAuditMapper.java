@@ -9,5 +9,5 @@ public interface CustomerAuditMapper extends IMapper<CustomerAudit> {
 
     void batchAddCustomerAudit(List<CustomerAudit> customerAudits);
 
-    void audit(CustomerAudit customerAudit);
+    void update(CustomerAudit customerAudit);
 }

@@ -4,11 +4,13 @@ import com.clawhub.crm.core.constants.StatusConstant;
 import com.clawhub.crm.entity.Customer;
 import com.clawhub.crm.entity.CustomerApply;
 import com.clawhub.crm.entity.CustomerAudit;
+import com.clawhub.crm.entity.EmployeeCustomer;
 import com.clawhub.crm.entity.bean.CustomerBean;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
 import com.clawhub.crm.mapper.CustomerApplyMapper;
 import com.clawhub.crm.mapper.CustomerAuditMapper;
 import com.clawhub.crm.mapper.CustomerMapper;
+import com.clawhub.crm.mapper.EmployeeCustomerMapper;
 import com.clawhub.crm.mapper.multiple.CustomerMultipleMapper;
 import com.clawhub.crm.service.CustomerService;
 import com.clawhub.crm.util.IDGenerator;
@@ -47,7 +49,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerAuditMapper customerAuditMapper;
 
-
+    /**
+     * The Employee customer mapper.
+     */
+    @Autowired
+    private EmployeeCustomerMapper employeeCustomerMapper;
     /**
      * The Customer multiple mapper.
      */
@@ -140,7 +146,7 @@ public class CustomerServiceImpl implements CustomerService {
      */
     @Override
     public List<CustomerBean> queryApplyCustomerList(QueryCustomerVO queryCustomerVO) {
-        return customerMultipleMapper.query(queryCustomerVO);
+        return customerMultipleMapper.queryApplyCustomerList(queryCustomerVO);
     }
 
     /**
@@ -151,16 +157,29 @@ public class CustomerServiceImpl implements CustomerService {
      */
     @Override
     public List<Customer> queryAuditCustomerList(QueryCustomerVO queryCustomerVO) {
-        return null;
+        return customerMultipleMapper.queryAuditCustomerList(queryCustomerVO);
     }
 
     /**
      * 审核客户
      *
-     * @param customerAudit 审核信息
+     * @param queryCustomerVO 审核信息
      */
     @Override
-    public void audit(CustomerAudit customerAudit) {
-        customerAuditMapper.audit(customerAudit);
+    @Transactional(rollbackFor = Exception.class)
+    public void audit(QueryCustomerVO queryCustomerVO) {
+
+        CustomerAudit customerAudit = new CustomerAudit();
+        //更新客户审核表
+        customerAuditMapper.update(customerAudit);
+
+        //新增客户与员工t_employee_customer关系
+        EmployeeCustomer employeeCustomer = new EmployeeCustomer();
+        employeeCustomer.setId(IDGenerator.getID());
+        employeeCustomer.setCustomerId("cus003");
+        employeeCustomer.setEmployeeId("20190101");
+        employeeCustomer.setCreateTime(new Date());
+        employeeCustomer.setDelete(StatusConstant.UN_DELETED);
+        employeeCustomerMapper.insertSelective(employeeCustomer);
     }
 }

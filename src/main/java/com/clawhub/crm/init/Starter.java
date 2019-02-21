@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
  * @taskId <br>
  * @create 2019-01-23 21:43<br>
  */
-@Component
+//@Component
 public class Starter {
 
     /**

@@ -29,7 +29,7 @@ import java.util.Set;
  * taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-@Component
+//@Component
 public class MyShiroRealm extends AuthorizingRealm {
 
     /**

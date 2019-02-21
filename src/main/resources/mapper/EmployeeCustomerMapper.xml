@@ -11,7 +11,7 @@
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
     <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="delete" property="delete" jdbcType="BIT" />
+    <result column="delete_state" property="delete" jdbcType="BIT" />
     <result column="customer_id" property="customerId" jdbcType="VARCHAR" />
     <result column="employee_id" property="employeeId" jdbcType="VARCHAR" />
   </resultMap>

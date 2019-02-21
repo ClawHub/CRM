@@ -16,6 +16,14 @@
         <result column="apply_id" property="applyId" jdbcType="VARCHAR"/>
         <result column="audit_state" property="auditState" jdbcType="VARCHAR"/>
     </resultMap>
+
     <insert id="batchAddCustomerAudit"></insert>
-    <update id="audit"></update>
+
+    <update id="update">
+        UPDATE t_customer_audit t
+        SET t.audit_state = '2',
+        t.remark = 'ksks'
+        WHERE
+            t.audit_id = 'au003';
+    </update>
 </mapper>

@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * @taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-@Configuration
+//@Configuration
 public class ShiroConfig {
 
     /**

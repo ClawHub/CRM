@@ -43,6 +43,7 @@ public class EmployeeCustomer {
     /**
      * 删除状态 0:未删除 1:已删除
      */
+    @Column(name = "delete_state")
     private Boolean delete;
 
     /**

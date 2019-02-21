@@ -26,6 +26,12 @@ public class CustomerBean {
     private String auditEmployeeName;
 
     /**
+     * Instantiates a new Customer bean.
+     */
+    public CustomerBean() {
+    }
+
+    /**
      * Instantiates a new Customer vo.
      *
      * @param customer          the customer
@@ -35,7 +41,7 @@ public class CustomerBean {
     public CustomerBean(Customer customer, CustomerAudit customerAudit, String auditEmployeeName) {
         this.customer = customer;
         this.customerAudit = customerAudit;
-        auditEmployeeName = auditEmployeeName;
+        this.auditEmployeeName = auditEmployeeName;
     }
 
     /**

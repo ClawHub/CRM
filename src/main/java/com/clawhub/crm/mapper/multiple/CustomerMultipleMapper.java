@@ -1,5 +1,6 @@
 package com.clawhub.crm.mapper.multiple;
 
+import com.clawhub.crm.entity.Customer;
 import com.clawhub.crm.entity.bean.CustomerBean;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
 
@@ -21,5 +22,12 @@ public interface CustomerMultipleMapper {
      * @param queryCustomerVO 查询条件
      * @return 申请的客户信息
      */
-    List<CustomerBean> query(QueryCustomerVO queryCustomerVO);
+    List<CustomerBean> queryApplyCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 查看审核的客户信息
+     * @param queryCustomerVO 查询条件
+     * @return 审核的客户信息
+     */
+    List<Customer> queryAuditCustomerList(QueryCustomerVO queryCustomerVO);
 }

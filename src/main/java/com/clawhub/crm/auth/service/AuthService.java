@@ -24,7 +24,7 @@ import java.util.Map;
  * @taskId <br>
  * @CreateDate 2018 -09-10 <br>
  */
-@Service
+//@Service
 public class AuthService {
 
     /**

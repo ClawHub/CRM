@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-@RestController
-@RequestMapping("auth")
+//@RestController
+//@RequestMapping("auth")
 public class AuthController {
 
     /**
