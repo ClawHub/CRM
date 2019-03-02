@@ -94,7 +94,7 @@ public class CustomerServiceImpl implements CustomerService {
             customerApply.setCreateTime(new Date());
             //客户ID
             customerApply.setCustomerId(customer.getCustomerId());
-            customerApply.setDelete(StatusConstant.UN_DELETED);
+            customerApply.setDelFlag(StatusConstant.UN_DELETED);
             //申请添加客户的员工ID
             customerApply.setEmployeeId(applyEmployeeId);
             customerApply.setId(IDGenerator.getID());
@@ -106,7 +106,7 @@ public class CustomerServiceImpl implements CustomerService {
             //待审核
             customerAudit.setAuditState(StatusConstant.AUDIT_STATE_PENDING);
             customerAudit.setCreateTime(new Date());
-            customerAudit.setDelete(StatusConstant.UN_DELETED);
+            customerAudit.setDelFlag(StatusConstant.UN_DELETED);
             customerAudit.setId(IDGenerator.getID());
             customerApplies.add(customerApply);
             customerAudits.add(customerAudit);
@@ -127,22 +127,23 @@ public class CustomerServiceImpl implements CustomerService {
         for (Customer customer : customers) {
             customer.setCreateTime(new Date());
             customer.setCustomerId(IDGenerator.getID());
-            customer.setDelete(StatusConstant.UN_DELETED);
+            customer.setDelFlag(StatusConstant.UN_DELETED);
             customer.setId(IDGenerator.getID());
         }
     }
 
     /**
      * 获取能看到的客户信息
+     *
      * @param queryCustomerVO
      */
     @Override
     public List<Customer> viewCustomer(QueryCustomerVO queryCustomerVO) {
         //获取当前用户的数据权限
         int scope = 1;
-        switch(scope){
+        switch (scope) {
             case DataScopeConstant.ONLY_SELF:
-               return customerMultipleMapper.queryOnlySelfCustomerList(queryCustomerVO);
+                return customerMultipleMapper.queryOnlySelfCustomerList(queryCustomerVO);
             case DataScopeConstant.ONLY_DEPARTMENT:
                 return customerMultipleMapper.queryOnlyDepartmentCustomerList(queryCustomerVO);
             case DataScopeConstant.DEPARTMENT_UNDER:
@@ -151,8 +152,8 @@ public class CustomerServiceImpl implements CustomerService {
                 return customerMultipleMapper.queryAllCustomerList(queryCustomerVO);
             case DataScopeConstant.CUSTOM:
                 return customerMultipleMapper.queryCustomCustomerList(queryCustomerVO);
-                default:
-                    return Collections.emptyList();
+            default:
+                return Collections.emptyList();
 
         }
     }
@@ -198,7 +199,7 @@ public class CustomerServiceImpl implements CustomerService {
         employeeCustomer.setCustomerId("cus003");
         employeeCustomer.setEmployeeId("20190101");
         employeeCustomer.setCreateTime(new Date());
-        employeeCustomer.setDelete(StatusConstant.UN_DELETED);
+        employeeCustomer.setDelFlag(StatusConstant.UN_DELETED);
         employeeCustomerMapper.insertSelective(employeeCustomer);
     }
 }

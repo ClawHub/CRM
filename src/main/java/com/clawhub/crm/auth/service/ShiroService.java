@@ -20,7 +20,7 @@ import java.util.Map;
  * @taskId <br>
  * @CreateDate 2018年02月08日<br>
  */
-//@Service
+@Service
 public class ShiroService {
     /**
      * 日志

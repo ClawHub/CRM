@@ -12,46 +12,28 @@ public class SysRole {
     private String id;
 
     /**
-     * 创建人ID
-     */
-    @Column(name = "create_operator_id")
-    private String createOperatorId;
-
-    /**
-     * 创建人姓名
-     */
-    @Column(name = "create_operator_name")
-    private String createOperatorName;
-
-    /**
      * 创建时间
      */
     @Column(name = "create_time")
-    private Long createTime;
-
-    /**
-     * 更新人ID
-     */
-    @Column(name = "update_operator_id")
-    private String updateOperatorId;
-
-    /**
-     * 更新人姓名
-     */
-    @Column(name = "update_operator_name")
-    private Date updateOperatorName;
+    private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    private Long updateTime;
+    private Date updateTime;
 
     /**
-     * 0-未删除,1-已删除
+     * 创建人
      */
-    @Column(name = "is_delete")
-    private String isDelete;
+    @Column(name = "create_user")
+    private String createUser;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_user")
+    private String updateUser;
 
     /**
      * 备注
@@ -59,7 +41,13 @@ public class SysRole {
     private String remark;
 
     /**
-     * 角色ID
+     * 删除状态 0:未删除 1:已删除
+     */
+    @Column(name = "del_flag")
+    private Boolean delFlag;
+
+    /**
+     * 角色id
      */
     @Column(name = "role_id")
     private String roleId;
@@ -73,12 +61,19 @@ public class SysRole {
     /**
      * 0-未锁定,1-已锁定
      */
-    private String state;
+    @Column(name = "role_state")
+    private Boolean roleState;
 
     /**
      * 描述
      */
     private String description;
+
+    /**
+     * 数据范围：0.仅本人数据，1.所在部门数据，2.所在部门及以下数据，3,所有数据，4,定制数据
+     */
+    @Column(name = "data_scope")
+    private String dataScope;
 
     /**
      * 获取id
@@ -99,47 +94,11 @@ public class SysRole {
     }
 
     /**
-     * 获取创建人ID
-     *
-     * @return create_operator_id - 创建人ID
-     */
-    public String getCreateOperatorId() {
-        return createOperatorId;
-    }
-
-    /**
-     * 设置创建人ID
-     *
-     * @param createOperatorId 创建人ID
-     */
-    public void setCreateOperatorId(String createOperatorId) {
-        this.createOperatorId = createOperatorId;
-    }
-
-    /**
-     * 获取创建人姓名
-     *
-     * @return create_operator_name - 创建人姓名
-     */
-    public String getCreateOperatorName() {
-        return createOperatorName;
-    }
-
-    /**
-     * 设置创建人姓名
-     *
-     * @param createOperatorName 创建人姓名
-     */
-    public void setCreateOperatorName(String createOperatorName) {
-        this.createOperatorName = createOperatorName;
-    }
-
-    /**
      * 获取创建时间
      *
      * @return create_time - 创建时间
      */
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
@@ -148,44 +107,8 @@ public class SysRole {
      *
      * @param createTime 创建时间
      */
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    /**
-     * 获取更新人ID
-     *
-     * @return update_operator_id - 更新人ID
-     */
-    public String getUpdateOperatorId() {
-        return updateOperatorId;
-    }
-
-    /**
-     * 设置更新人ID
-     *
-     * @param updateOperatorId 更新人ID
-     */
-    public void setUpdateOperatorId(String updateOperatorId) {
-        this.updateOperatorId = updateOperatorId;
-    }
-
-    /**
-     * 获取更新人姓名
-     *
-     * @return update_operator_name - 更新人姓名
-     */
-    public Date getUpdateOperatorName() {
-        return updateOperatorName;
-    }
-
-    /**
-     * 设置更新人姓名
-     *
-     * @param updateOperatorName 更新人姓名
-     */
-    public void setUpdateOperatorName(Date updateOperatorName) {
-        this.updateOperatorName = updateOperatorName;
     }
 
     /**
@@ -193,7 +116,7 @@ public class SysRole {
      *
      * @return update_time - 更新时间
      */
-    public Long getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
@@ -202,26 +125,44 @@ public class SysRole {
      *
      * @param updateTime 更新时间
      */
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * 获取0-未删除,1-已删除
+     * 获取创建人
      *
-     * @return is_delete - 0-未删除,1-已删除
+     * @return create_user - 创建人
      */
-    public String getIsDelete() {
-        return isDelete;
+    public String getCreateUser() {
+        return createUser;
     }
 
     /**
-     * 设置0-未删除,1-已删除
+     * 设置创建人
      *
-     * @param isDelete 0-未删除,1-已删除
+     * @param createUser 创建人
      */
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_user - 更新人
+     */
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateUser 更新人
+     */
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     /**
@@ -243,18 +184,36 @@ public class SysRole {
     }
 
     /**
-     * 获取角色ID
+     * 获取删除状态 0:未删除 1:已删除
      *
-     * @return role_id - 角色ID
+     * @return del_flag - 删除状态 0:未删除 1:已删除
+     */
+    public Boolean getDelFlag() {
+        return delFlag;
+    }
+
+    /**
+     * 设置删除状态 0:未删除 1:已删除
+     *
+     * @param delFlag 删除状态 0:未删除 1:已删除
+     */
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    /**
+     * 获取角色id
+     *
+     * @return role_id - 角色id
      */
     public String getRoleId() {
         return roleId;
     }
 
     /**
-     * 设置角色ID
+     * 设置角色id
      *
-     * @param roleId 角色ID
+     * @param roleId 角色id
      */
     public void setRoleId(String roleId) {
         this.roleId = roleId;
@@ -281,19 +240,19 @@ public class SysRole {
     /**
      * 获取0-未锁定,1-已锁定
      *
-     * @return state - 0-未锁定,1-已锁定
+     * @return role_state - 0-未锁定,1-已锁定
      */
-    public String getState() {
-        return state;
+    public Boolean getRoleState() {
+        return roleState;
     }
 
     /**
      * 设置0-未锁定,1-已锁定
      *
-     * @param state 0-未锁定,1-已锁定
+     * @param roleState 0-未锁定,1-已锁定
      */
-    public void setState(String state) {
-        this.state = state;
+    public void setRoleState(Boolean roleState) {
+        this.roleState = roleState;
     }
 
     /**
@@ -312,5 +271,23 @@ public class SysRole {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * 获取数据范围：0.仅本人数据，1.所在部门数据，2.所在部门及以下数据，3,所有数据，4,定制数据
+     *
+     * @return data_scope - 数据范围：0.仅本人数据，1.所在部门数据，2.所在部门及以下数据，3,所有数据，4,定制数据
+     */
+    public String getDataScope() {
+        return dataScope;
+    }
+
+    /**
+     * 设置数据范围：0.仅本人数据，1.所在部门数据，2.所在部门及以下数据，3,所有数据，4,定制数据
+     *
+     * @param dataScope 数据范围：0.仅本人数据，1.所在部门数据，2.所在部门及以下数据，3,所有数据，4,定制数据
+     */
+    public void setDataScope(String dataScope) {
+        this.dataScope = dataScope;
     }
 }

@@ -26,7 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * @taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     /**
@@ -40,6 +40,12 @@ public class ShiroConfig {
      */
     @Autowired
     private AuthAdapter authAdapter;
+
+    /**
+     * The My shiro realm.
+     */
+    @Autowired
+    private MyShiroRealm myShiroRealm;
     /**
      * The Shiro switch.
      * true:关闭
@@ -74,7 +80,7 @@ public class ShiroConfig {
         //未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/auth/unAuthorized");
         //开关控制
-        if (shiroSwitch) {
+        if (!shiroSwitch) {
             return shiroFilterFactoryBean;
         }
         // 权限控制map.
@@ -94,7 +100,7 @@ public class ShiroConfig {
     public SecurityManager securityManager() {
         logger.info("ShiroConfiguration.securityManager()");
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(myShiroRealm());
+        securityManager.setRealm(getMyShiroRealm());
         // 自定义session管理 使用redis
         securityManager.setSessionManager(sessionManager());
         // 自定义缓存实现 使用redis
@@ -109,10 +115,8 @@ public class ShiroConfig {
      * @author LiZhiming <br>
      * @taskId <br>
      */
-    @Bean
-    public MyShiroRealm myShiroRealm() {
+    public MyShiroRealm getMyShiroRealm() {
         logger.info("ShiroConfiguration.myShiroRealm()");
-        MyShiroRealm myShiroRealm = new MyShiroRealm();
         myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
     }

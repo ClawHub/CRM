@@ -10,9 +10,17 @@ import java.util.List;
  */
 public interface SysUserMapper extends IMapper<SysUser> {
     /**
-     * Gets all user name.
+     * 获取所有的的用户名
      *
      * @return the all user name
      */
     List<String> getAllUserName();
+
+    /**
+     * 根据用户名获取用户信息
+     *
+     * @param username 用户名
+     * @return 用户信息
+     */
+    SysUser QuerySysUserByUsername(String username);
 }

@@ -16,6 +16,7 @@ import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -29,7 +30,7 @@ import java.util.Set;
  * taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-//@Component
+@Component
 public class MyShiroRealm extends AuthorizingRealm {
 
     /**
@@ -57,7 +58,8 @@ public class MyShiroRealm extends AuthorizingRealm {
 
     /**
      * Description: Do get authorization info <br>
-     *授权认证 看当前用户是否拥有访问某一资源的权限
+     * 授权认证 看当前用户是否拥有访问某一资源的权限
+     *
      * @param principals principals
      * @return authorization info
      * @author LiZhiming <br>
@@ -83,7 +85,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         Set<String> permissions = new HashSet<>();
         if (!CollectionUtils.isEmpty(resources)) {
             for (SysResource sysResource : resources) {
-                permissions.add(sysResource.getPermission());
+                permissions.add(sysResource.getAuthMark());
             }
         }
         logger.info("权限列表：{}", permissions);

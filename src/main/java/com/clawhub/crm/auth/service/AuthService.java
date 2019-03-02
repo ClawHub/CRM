@@ -24,7 +24,7 @@ import java.util.Map;
  * @taskId <br>
  * @CreateDate 2018 -09-10 <br>
  */
-//@Service
+@Service
 public class AuthService {
 
     /**
@@ -93,7 +93,7 @@ public class AuthService {
     private TokenService tokenService;
 
     /**
-     * Save token info.
+     * 用户，角色，权限资源入redis
      *
      * @param username the username
      * @param token    the token

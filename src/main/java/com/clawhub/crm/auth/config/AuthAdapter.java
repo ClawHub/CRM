@@ -2,6 +2,8 @@ package com.clawhub.crm.auth.config;
 
 import com.clawhub.crm.entity.SysResource;
 import com.clawhub.crm.service.SysResourceService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,10 @@ import java.util.Map;
  */
 @Component
 public class AuthAdapter {
+    /**
+     * The Logger.
+     */
+    private Logger logger = LoggerFactory.getLogger(AuthAdapter.class);
     /**
      * The Sys resource service.
      */
@@ -41,11 +47,12 @@ public class AuthAdapter {
 //        for (SysResource resource : resources) {
 //            logger.info("=======================权限配置开始================================");
 //            logger.info("Size :{}", resources.size());
-//            logger.info("Url() :{}", resource.getUrl());
-//            logger.info("Permission() :{}", resource.getPermission());
-//            filterChainDefinitionMap.put(resource.getUrl(), "perms[" + resource.getPermission() + "]");
+//            logger.info("Url() :{}", resource);
+//            logger.info("Permission() :{}", resource.getAuthMark());
+//            filterChainDefinitionMap.put(resource.getUrl(), "perms[" + resource.getAuthMark() + "]");
 //            logger.info("=======================权限配置结束================================");
 //        }
+        // 表示需要认证才可以访问
         filterChainDefinitionMap.put("/**", "authc");
         return filterChainDefinitionMap;
     }

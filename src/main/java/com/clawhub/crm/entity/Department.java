@@ -43,7 +43,8 @@ public class Department {
     /**
      * 删除状态 0:未删除 1:已删除
      */
-    private Boolean delete;
+    @Column(name = "del_flag")
+    private Boolean delFlag;
 
     /**
      * 部门编号
@@ -180,19 +181,19 @@ public class Department {
     /**
      * 获取删除状态 0:未删除 1:已删除
      *
-     * @return delete - 删除状态 0:未删除 1:已删除
+     * @return del_flag - 删除状态 0:未删除 1:已删除
      */
-    public Boolean getDelete() {
-        return delete;
+    public Boolean getDelFlag() {
+        return delFlag;
     }
 
     /**
      * 设置删除状态 0:未删除 1:已删除
      *
-     * @param delete 删除状态 0:未删除 1:已删除
+     * @param delFlag 删除状态 0:未删除 1:已删除
      */
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
     }
 
     /**

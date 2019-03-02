@@ -43,7 +43,8 @@ public class CustomerAudit {
     /**
      * 删除状态 0:未删除 1:已删除
      */
-    private Boolean delete;
+    @Column(name = "del_flag")
+    private Boolean delFlag;
 
     /**
      * 审核id
@@ -62,6 +63,12 @@ public class CustomerAudit {
      */
     @Column(name = "audit_state")
     private String auditState;
+
+    /**
+     * 审核人员ID
+     */
+    @Column(name = "audit_employee_id")
+    private String auditEmployeeId;
 
     /**
      * 获取id
@@ -174,19 +181,19 @@ public class CustomerAudit {
     /**
      * 获取删除状态 0:未删除 1:已删除
      *
-     * @return delete - 删除状态 0:未删除 1:已删除
+     * @return del_flag - 删除状态 0:未删除 1:已删除
      */
-    public Boolean getDelete() {
-        return delete;
+    public Boolean getDelFlag() {
+        return delFlag;
     }
 
     /**
      * 设置删除状态 0:未删除 1:已删除
      *
-     * @param delete 删除状态 0:未删除 1:已删除
+     * @param delFlag 删除状态 0:未删除 1:已删除
      */
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
     }
 
     /**
@@ -241,5 +248,23 @@ public class CustomerAudit {
      */
     public void setAuditState(String auditState) {
         this.auditState = auditState;
+    }
+
+    /**
+     * 获取审核人员ID
+     *
+     * @return audit_employee_id - 审核人员ID
+     */
+    public String getAuditEmployeeId() {
+        return auditEmployeeId;
+    }
+
+    /**
+     * 设置审核人员ID
+     *
+     * @param auditEmployeeId 审核人员ID
+     */
+    public void setAuditEmployeeId(String auditEmployeeId) {
+        this.auditEmployeeId = auditEmployeeId;
     }
 }

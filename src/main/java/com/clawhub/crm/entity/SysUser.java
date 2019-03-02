@@ -2,10 +2,18 @@ package com.clawhub.crm.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author zm
+ */
 @Table(name = "t_sys_user")
-public class SysUser {
+public class SysUser implements Serializable {
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 2337357277490706892L;
     /**
      * id
      */
@@ -43,7 +51,8 @@ public class SysUser {
     /**
      * 删除状态 0:未删除 1:已删除
      */
-    private Boolean delete;
+    @Column(name = "del_flag")
+    private Boolean delFlag;
 
     /**
      * 用户id
@@ -185,19 +194,19 @@ public class SysUser {
     /**
      * 获取删除状态 0:未删除 1:已删除
      *
-     * @return delete - 删除状态 0:未删除 1:已删除
+     * @return del_flag - 删除状态 0:未删除 1:已删除
      */
-    public Boolean getDelete() {
-        return delete;
+    public Boolean getDelFlag() {
+        return delFlag;
     }
 
     /**
      * 设置删除状态 0:未删除 1:已删除
      *
-     * @param delete 删除状态 0:未删除 1:已删除
+     * @param delFlag 删除状态 0:未删除 1:已删除
      */
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
     }
 
     /**

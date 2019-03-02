@@ -4,8 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Table(name = "t_role_resource")
-public class RoleResource {
+@Table(name = "t_role_department")
+public class RoleDepartment {
     /**
      * id
      */
@@ -47,7 +47,7 @@ public class RoleResource {
     private Boolean delFlag;
 
     /**
-     * 员工id
+     * 角色id
      */
     @Column(name = "role_id")
     private String roleId;
@@ -55,8 +55,8 @@ public class RoleResource {
     /**
      * 部门id
      */
-    @Column(name = "resource_id")
-    private String resourceId;
+    @Column(name = "department_id")
+    private String departmentId;
 
     /**
      * 获取id
@@ -185,18 +185,18 @@ public class RoleResource {
     }
 
     /**
-     * 获取员工id
+     * 获取角色id
      *
-     * @return role_id - 员工id
+     * @return role_id - 角色id
      */
     public String getRoleId() {
         return roleId;
     }
 
     /**
-     * 设置员工id
+     * 设置角色id
      *
-     * @param roleId 员工id
+     * @param roleId 角色id
      */
     public void setRoleId(String roleId) {
         this.roleId = roleId;
@@ -205,18 +205,18 @@ public class RoleResource {
     /**
      * 获取部门id
      *
-     * @return resource_id - 部门id
+     * @return department_id - 部门id
      */
-    public String getResourceId() {
-        return resourceId;
+    public String getDepartmentId() {
+        return departmentId;
     }
 
     /**
      * 设置部门id
      *
-     * @param resourceId 部门id
+     * @param departmentId 部门id
      */
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 }

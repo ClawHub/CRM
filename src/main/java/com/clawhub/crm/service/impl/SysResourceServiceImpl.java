@@ -7,6 +7,7 @@ import com.clawhub.crm.util.IDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -68,6 +69,6 @@ public class SysResourceServiceImpl implements SysResourceService {
      */
     @Override
     public List<SysResource> getAllResource() {
-        return null;
+        return Collections.emptyList();
     }
 }

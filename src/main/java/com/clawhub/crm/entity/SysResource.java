@@ -12,51 +12,39 @@ public class SysResource {
     private String id;
 
     /**
-     * 创建人ID
-     */
-    @Column(name = "create_operator_id")
-    private String createOperatorId;
-
-    /**
-     * 创建人姓名
-     */
-    @Column(name = "create_operator_name")
-    private String createOperatorName;
-
-    /**
      * 创建时间
      */
     @Column(name = "create_time")
-    private Long createTime;
-
-    /**
-     * 更新人ID
-     */
-    @Column(name = "update_operator_id")
-    private String updateOperatorId;
-
-    /**
-     * 更新人姓名
-     */
-    @Column(name = "update_operator_name")
-    private Date updateOperatorName;
+    private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    private Long updateTime;
+    private Date updateTime;
 
     /**
-     * 0-未删除,1-已删除
+     * 创建人
      */
-    @Column(name = "is_delete")
-    private String isDelete;
+    @Column(name = "create_user")
+    private String createUser;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_user")
+    private String updateUser;
 
     /**
      * 备注
      */
     private String remark;
+
+    /**
+     * 删除状态 0:未删除 1:已删除
+     */
+    @Column(name = "del_flag")
+    private Boolean delFlag;
 
     /**
      * 资源ID
@@ -71,42 +59,51 @@ public class SysResource {
     private String resourceName;
 
     /**
-     * 资源类型，[menu|button]
+     * 资源状态  0:启用，1:禁用
+     */
+    @Column(name = "resource_state")
+    private Boolean resourceState;
+
+    /**
+     * 资源类型 0:url,1:button
      */
     @Column(name = "resource_type")
-    private String resourceType;
+    private Boolean resourceType;
 
     /**
-     * 资源路径
+     * 权限标识
      */
-    private String url;
+    @Column(name = "auth_mark")
+    private String authMark;
 
     /**
-     * 权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
-     */
-    private String permission;
-
-    /**
-     * 父编号
+     * 父资源ID
      */
     @Column(name = "parent_id")
     private String parentId;
 
     /**
-     * 父编号列表
+     * 资源URL
      */
-    @Column(name = "parent_ids")
-    private String parentIds;
+    private String url;
 
     /**
-     * 0-未锁定,1-已锁定
+     * Gets url.
+     *
+     * @return the url
      */
-    private String state;
+    public String getUrl() {
+        return url;
+    }
 
     /**
-     * 排序
+     * Sets url.
+     *
+     * @param url the url
      */
-    private Integer sort;
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     /**
      * 获取id
@@ -127,47 +124,11 @@ public class SysResource {
     }
 
     /**
-     * 获取创建人ID
-     *
-     * @return create_operator_id - 创建人ID
-     */
-    public String getCreateOperatorId() {
-        return createOperatorId;
-    }
-
-    /**
-     * 设置创建人ID
-     *
-     * @param createOperatorId 创建人ID
-     */
-    public void setCreateOperatorId(String createOperatorId) {
-        this.createOperatorId = createOperatorId;
-    }
-
-    /**
-     * 获取创建人姓名
-     *
-     * @return create_operator_name - 创建人姓名
-     */
-    public String getCreateOperatorName() {
-        return createOperatorName;
-    }
-
-    /**
-     * 设置创建人姓名
-     *
-     * @param createOperatorName 创建人姓名
-     */
-    public void setCreateOperatorName(String createOperatorName) {
-        this.createOperatorName = createOperatorName;
-    }
-
-    /**
      * 获取创建时间
      *
      * @return create_time - 创建时间
      */
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
@@ -176,44 +137,8 @@ public class SysResource {
      *
      * @param createTime 创建时间
      */
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    /**
-     * 获取更新人ID
-     *
-     * @return update_operator_id - 更新人ID
-     */
-    public String getUpdateOperatorId() {
-        return updateOperatorId;
-    }
-
-    /**
-     * 设置更新人ID
-     *
-     * @param updateOperatorId 更新人ID
-     */
-    public void setUpdateOperatorId(String updateOperatorId) {
-        this.updateOperatorId = updateOperatorId;
-    }
-
-    /**
-     * 获取更新人姓名
-     *
-     * @return update_operator_name - 更新人姓名
-     */
-    public Date getUpdateOperatorName() {
-        return updateOperatorName;
-    }
-
-    /**
-     * 设置更新人姓名
-     *
-     * @param updateOperatorName 更新人姓名
-     */
-    public void setUpdateOperatorName(Date updateOperatorName) {
-        this.updateOperatorName = updateOperatorName;
     }
 
     /**
@@ -221,7 +146,7 @@ public class SysResource {
      *
      * @return update_time - 更新时间
      */
-    public Long getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
@@ -230,26 +155,44 @@ public class SysResource {
      *
      * @param updateTime 更新时间
      */
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * 获取0-未删除,1-已删除
+     * 获取创建人
      *
-     * @return is_delete - 0-未删除,1-已删除
+     * @return create_user - 创建人
      */
-    public String getIsDelete() {
-        return isDelete;
+    public String getCreateUser() {
+        return createUser;
     }
 
     /**
-     * 设置0-未删除,1-已删除
+     * 设置创建人
      *
-     * @param isDelete 0-未删除,1-已删除
+     * @param createUser 创建人
      */
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_user - 更新人
+     */
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateUser 更新人
+     */
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     /**
@@ -268,6 +211,24 @@ public class SysResource {
      */
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    /**
+     * 获取删除状态 0:未删除 1:已删除
+     *
+     * @return del_flag - 删除状态 0:未删除 1:已删除
+     */
+    public Boolean getDelFlag() {
+        return delFlag;
+    }
+
+    /**
+     * 设置删除状态 0:未删除 1:已删除
+     *
+     * @param delFlag 删除状态 0:未删除 1:已删除
+     */
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
     }
 
     /**
@@ -307,128 +268,74 @@ public class SysResource {
     }
 
     /**
-     * 获取资源类型，[menu|button]
+     * 获取资源状态  0:启用，1:禁用
      *
-     * @return resource_type - 资源类型，[menu|button]
+     * @return resource_state - 资源状态  0:启用，1:禁用
      */
-    public String getResourceType() {
+    public Boolean getResourceState() {
+        return resourceState;
+    }
+
+    /**
+     * 设置资源状态  0:启用，1:禁用
+     *
+     * @param resourceState 资源状态  0:启用，1:禁用
+     */
+    public void setResourceState(Boolean resourceState) {
+        this.resourceState = resourceState;
+    }
+
+    /**
+     * 获取资源类型 0:url,1:button
+     *
+     * @return resource_type - 资源类型 0:url,1:button
+     */
+    public Boolean getResourceType() {
         return resourceType;
     }
 
     /**
-     * 设置资源类型，[menu|button]
+     * 设置资源类型 0:url,1:button
      *
-     * @param resourceType 资源类型，[menu|button]
+     * @param resourceType 资源类型 0:url,1:button
      */
-    public void setResourceType(String resourceType) {
+    public void setResourceType(Boolean resourceType) {
         this.resourceType = resourceType;
     }
 
     /**
-     * 获取资源路径
+     * 获取权限标识
      *
-     * @return url - 资源路径
+     * @return auth_mark - 权限标识
      */
-    public String getUrl() {
-        return url;
+    public String getAuthMark() {
+        return authMark;
     }
 
     /**
-     * 设置资源路径
+     * 设置权限标识
      *
-     * @param url 资源路径
+     * @param authMark 权限标识
      */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAuthMark(String authMark) {
+        this.authMark = authMark;
     }
 
     /**
-     * 获取权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
+     * 获取父资源ID
      *
-     * @return permission - 权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
-     */
-    public String getPermission() {
-        return permission;
-    }
-
-    /**
-     * 设置权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
-     *
-     * @param permission 权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
-     */
-    public void setPermission(String permission) {
-        this.permission = permission;
-    }
-
-    /**
-     * 获取父编号
-     *
-     * @return parent_id - 父编号
+     * @return parent_id - 父资源ID
      */
     public String getParentId() {
         return parentId;
     }
 
     /**
-     * 设置父编号
+     * 设置父资源ID
      *
-     * @param parentId 父编号
+     * @param parentId 父资源ID
      */
     public void setParentId(String parentId) {
         this.parentId = parentId;
-    }
-
-    /**
-     * 获取父编号列表
-     *
-     * @return parent_ids - 父编号列表
-     */
-    public String getParentIds() {
-        return parentIds;
-    }
-
-    /**
-     * 设置父编号列表
-     *
-     * @param parentIds 父编号列表
-     */
-    public void setParentIds(String parentIds) {
-        this.parentIds = parentIds;
-    }
-
-    /**
-     * 获取0-未锁定,1-已锁定
-     *
-     * @return state - 0-未锁定,1-已锁定
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * 设置0-未锁定,1-已锁定
-     *
-     * @param state 0-未锁定,1-已锁定
-     */
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    /**
-     * 获取排序
-     *
-     * @return sort - 排序
-     */
-    public Integer getSort() {
-        return sort;
-    }
-
-    /**
-     * 设置排序
-     *
-     * @param sort 排序
-     */
-    public void setSort(Integer sort) {
-        this.sort = sort;
     }
 }

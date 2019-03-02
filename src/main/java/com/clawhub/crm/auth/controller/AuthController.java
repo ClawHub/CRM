@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @taskId <br>
  * @CreateDate 2018年02月07日<br>
  */
-//@RestController
-//@RequestMapping("auth")
+@RestController
+@RequestMapping("auth")
 public class AuthController {
 
     /**
@@ -27,6 +27,7 @@ public class AuthController {
      */
     @Autowired
     private AuthService authService;
+
 
     /**
      * Description: 登录方法 <br>
@@ -39,6 +40,7 @@ public class AuthController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody String param) {
         SysUser userInfo = JSONObject.parseObject(param, SysUser.class);
+
         return authService.login(userInfo);
     }
 

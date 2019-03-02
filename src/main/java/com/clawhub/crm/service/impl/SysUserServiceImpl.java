@@ -119,6 +119,6 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser findByUsername(String username) {
-        return null;
+        return sysUserMapper.QuerySysUserByUsername(username);
     }
 }

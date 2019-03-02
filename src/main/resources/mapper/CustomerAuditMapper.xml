@@ -11,19 +11,19 @@
         <result column="create_user" property="createUser" jdbcType="VARCHAR"/>
         <result column="update_user" property="updateUser" jdbcType="VARCHAR"/>
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
-        <result column="delete" property="delete" jdbcType="BIT"/>
+        <result column="del_flag" property="delFlag" jdbcType="BIT"/>
         <result column="audit_id" property="auditId" jdbcType="VARCHAR"/>
         <result column="apply_id" property="applyId" jdbcType="VARCHAR"/>
         <result column="audit_state" property="auditState" jdbcType="VARCHAR"/>
+        <result column="audit_employee_id" property="auditEmployeeId" jdbcType="VARCHAR"/>
     </resultMap>
-
     <insert id="batchAddCustomerAudit"></insert>
 
     <update id="update">
-        UPDATE t_customer_audit t
-        SET t.audit_state = '2',
-        t.remark = 'ksks'
-        WHERE
-            t.audit_id = 'au003';
-    </update>
+    UPDATE t_customer_audit t
+    SET t.audit_state = '2',
+    t.remark = 'ksks'
+    WHERE
+    t.audit_id = 'au003';
+  </update>
 </mapper>

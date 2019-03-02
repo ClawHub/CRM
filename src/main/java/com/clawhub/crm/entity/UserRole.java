@@ -12,46 +12,28 @@ public class UserRole {
     private String id;
 
     /**
-     * 创建人ID
-     */
-    @Column(name = "create_operator_id")
-    private String createOperatorId;
-
-    /**
-     * 创建人姓名
-     */
-    @Column(name = "create_operator_name")
-    private String createOperatorName;
-
-    /**
      * 创建时间
      */
     @Column(name = "create_time")
-    private Long createTime;
-
-    /**
-     * 更新人ID
-     */
-    @Column(name = "update_operator_id")
-    private String updateOperatorId;
-
-    /**
-     * 更新人姓名
-     */
-    @Column(name = "update_operator_name")
-    private Date updateOperatorName;
+    private Date createTime;
 
     /**
      * 更新时间
      */
     @Column(name = "update_time")
-    private Long updateTime;
+    private Date updateTime;
 
     /**
-     * 0-未删除,1-已删除
+     * 创建人
      */
-    @Column(name = "is_delete")
-    private String isDelete;
+    @Column(name = "create_user")
+    private String createUser;
+
+    /**
+     * 更新人
+     */
+    @Column(name = "update_user")
+    private String updateUser;
 
     /**
      * 备注
@@ -59,13 +41,19 @@ public class UserRole {
     private String remark;
 
     /**
-     * 用户ID
+     * 删除状态 0:未删除 1:已删除
+     */
+    @Column(name = "del_flag")
+    private Boolean delFlag;
+
+    /**
+     * 员工id
      */
     @Column(name = "user_id")
     private String userId;
 
     /**
-     * 角色ID
+     * 部门id
      */
     @Column(name = "role_id")
     private String roleId;
@@ -89,47 +77,11 @@ public class UserRole {
     }
 
     /**
-     * 获取创建人ID
-     *
-     * @return create_operator_id - 创建人ID
-     */
-    public String getCreateOperatorId() {
-        return createOperatorId;
-    }
-
-    /**
-     * 设置创建人ID
-     *
-     * @param createOperatorId 创建人ID
-     */
-    public void setCreateOperatorId(String createOperatorId) {
-        this.createOperatorId = createOperatorId;
-    }
-
-    /**
-     * 获取创建人姓名
-     *
-     * @return create_operator_name - 创建人姓名
-     */
-    public String getCreateOperatorName() {
-        return createOperatorName;
-    }
-
-    /**
-     * 设置创建人姓名
-     *
-     * @param createOperatorName 创建人姓名
-     */
-    public void setCreateOperatorName(String createOperatorName) {
-        this.createOperatorName = createOperatorName;
-    }
-
-    /**
      * 获取创建时间
      *
      * @return create_time - 创建时间
      */
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
@@ -138,44 +90,8 @@ public class UserRole {
      *
      * @param createTime 创建时间
      */
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    /**
-     * 获取更新人ID
-     *
-     * @return update_operator_id - 更新人ID
-     */
-    public String getUpdateOperatorId() {
-        return updateOperatorId;
-    }
-
-    /**
-     * 设置更新人ID
-     *
-     * @param updateOperatorId 更新人ID
-     */
-    public void setUpdateOperatorId(String updateOperatorId) {
-        this.updateOperatorId = updateOperatorId;
-    }
-
-    /**
-     * 获取更新人姓名
-     *
-     * @return update_operator_name - 更新人姓名
-     */
-    public Date getUpdateOperatorName() {
-        return updateOperatorName;
-    }
-
-    /**
-     * 设置更新人姓名
-     *
-     * @param updateOperatorName 更新人姓名
-     */
-    public void setUpdateOperatorName(Date updateOperatorName) {
-        this.updateOperatorName = updateOperatorName;
     }
 
     /**
@@ -183,7 +99,7 @@ public class UserRole {
      *
      * @return update_time - 更新时间
      */
-    public Long getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
@@ -192,26 +108,44 @@ public class UserRole {
      *
      * @param updateTime 更新时间
      */
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     /**
-     * 获取0-未删除,1-已删除
+     * 获取创建人
      *
-     * @return is_delete - 0-未删除,1-已删除
+     * @return create_user - 创建人
      */
-    public String getIsDelete() {
-        return isDelete;
+    public String getCreateUser() {
+        return createUser;
     }
 
     /**
-     * 设置0-未删除,1-已删除
+     * 设置创建人
      *
-     * @param isDelete 0-未删除,1-已删除
+     * @param createUser 创建人
      */
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    /**
+     * 获取更新人
+     *
+     * @return update_user - 更新人
+     */
+    public String getUpdateUser() {
+        return updateUser;
+    }
+
+    /**
+     * 设置更新人
+     *
+     * @param updateUser 更新人
+     */
+    public void setUpdateUser(String updateUser) {
+        this.updateUser = updateUser;
     }
 
     /**
@@ -233,36 +167,54 @@ public class UserRole {
     }
 
     /**
-     * 获取用户ID
+     * 获取删除状态 0:未删除 1:已删除
      *
-     * @return user_id - 用户ID
+     * @return del_flag - 删除状态 0:未删除 1:已删除
+     */
+    public Boolean getDelFlag() {
+        return delFlag;
+    }
+
+    /**
+     * 设置删除状态 0:未删除 1:已删除
+     *
+     * @param delFlag 删除状态 0:未删除 1:已删除
+     */
+    public void setDelFlag(Boolean delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    /**
+     * 获取员工id
+     *
+     * @return user_id - 员工id
      */
     public String getUserId() {
         return userId;
     }
 
     /**
-     * 设置用户ID
+     * 设置员工id
      *
-     * @param userId 用户ID
+     * @param userId 员工id
      */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
-     * 获取角色ID
+     * 获取部门id
      *
-     * @return role_id - 角色ID
+     * @return role_id - 部门id
      */
     public String getRoleId() {
         return roleId;
     }
 
     /**
-     * 设置角色ID
+     * 设置部门id
      *
-     * @param roleId 角色ID
+     * @param roleId 部门id
      */
     public void setRoleId(String roleId) {
         this.roleId = roleId;
