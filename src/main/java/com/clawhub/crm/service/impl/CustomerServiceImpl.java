@@ -1,5 +1,6 @@
 package com.clawhub.crm.service.impl;
 
+import com.clawhub.crm.core.constants.DataScopeConstant;
 import com.clawhub.crm.core.constants.StatusConstant;
 import com.clawhub.crm.entity.Customer;
 import com.clawhub.crm.entity.CustomerApply;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -132,10 +134,27 @@ public class CustomerServiceImpl implements CustomerService {
 
     /**
      * 获取能看到的客户信息
+     * @param queryCustomerVO
      */
     @Override
-    public void viewCustomer() {
-        //TODO
+    public List<Customer> viewCustomer(QueryCustomerVO queryCustomerVO) {
+        //获取当前用户的数据权限
+        int scope = 1;
+        switch(scope){
+            case DataScopeConstant.ONLY_SELF:
+               return customerMultipleMapper.queryOnlySelfCustomerList(queryCustomerVO);
+            case DataScopeConstant.ONLY_DEPARTMENT:
+                return customerMultipleMapper.queryOnlyDepartmentCustomerList(queryCustomerVO);
+            case DataScopeConstant.DEPARTMENT_UNDER:
+                return customerMultipleMapper.queryDepartmentUnderCustomerList(queryCustomerVO);
+            case DataScopeConstant.ALL:
+                return customerMultipleMapper.queryAllCustomerList(queryCustomerVO);
+            case DataScopeConstant.CUSTOM:
+                return customerMultipleMapper.queryCustomCustomerList(queryCustomerVO);
+                default:
+                    return Collections.emptyList();
+
+        }
     }
 
     /**

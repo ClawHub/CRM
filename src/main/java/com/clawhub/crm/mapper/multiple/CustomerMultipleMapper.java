@@ -30,4 +30,39 @@ public interface CustomerMultipleMapper {
      * @return 审核的客户信息
      */
     List<Customer> queryAuditCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 只查询本人客户
+     * @param queryCustomerVO
+     * @return
+     */
+    List<Customer> queryOnlySelfCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 只查询本部门客户
+     * @param queryCustomerVO
+     * @return
+     */
+    List<Customer> queryOnlyDepartmentCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 查询部门及以下客户
+     * @param queryCustomerVO
+     * @return
+     */
+    List<Customer> queryDepartmentUnderCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 查询所有客户
+     * @param queryCustomerVO
+     * @return
+     */
+    List<Customer> queryAllCustomerList(QueryCustomerVO queryCustomerVO);
+
+    /**
+     * 定制化查询客户
+     * @param queryCustomerVO
+     * @return
+     */
+    List<Customer> queryCustomCustomerList(QueryCustomerVO queryCustomerVO);
 }

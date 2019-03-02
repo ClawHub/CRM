@@ -87,13 +87,13 @@ public class CustomerController {
     }
 
     /**
-     * 先不做
-     *
+     * 根据数据权限，获取客户信息
+     * @param queryCustomerVO the customer audit
      * @return the string
      */
-    @GetMapping("viewCustomer")
-    public String viewCustomer() {
-        customerService.viewCustomer();
+    @PostMapping("viewCustomer")
+    public String viewCustomer(QueryCustomerVO queryCustomerVO) {
+        customerService.viewCustomer(queryCustomerVO);
         return "";
     }
 

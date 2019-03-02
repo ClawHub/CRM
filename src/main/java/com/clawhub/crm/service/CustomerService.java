@@ -1,7 +1,6 @@
 package com.clawhub.crm.service;
 
 import com.clawhub.crm.entity.Customer;
-import com.clawhub.crm.entity.CustomerAudit;
 import com.clawhub.crm.entity.bean.CustomerBean;
 import com.clawhub.crm.entity.vo.QueryCustomerVO;
 
@@ -27,8 +26,10 @@ public interface CustomerService {
 
     /**
      * 获取能看到的客户信息
+     * @param queryCustomerVO
+     * @return 客户列表
      */
-    void viewCustomer();
+    List<Customer> viewCustomer(QueryCustomerVO queryCustomerVO);
 
     /**
      * 查看申请创建的客户列表

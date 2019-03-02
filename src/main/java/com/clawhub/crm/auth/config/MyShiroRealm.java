@@ -5,6 +5,7 @@ import com.clawhub.crm.entity.SysUser;
 import com.clawhub.crm.service.SysResourceService;
 import com.clawhub.crm.service.SysRoleService;
 import com.clawhub.crm.service.SysUserService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -16,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -57,7 +57,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 
     /**
      * Description: Do get authorization info <br>
-     *
+     *授权认证 看当前用户是否拥有访问某一资源的权限
      * @param principals principals
      * @return authorization info
      * @author LiZhiming <br>
