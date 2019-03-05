@@ -1,5 +1,6 @@
 package com.clawhub.crm.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.clawhub.crm.entity.SysResource;
 import com.clawhub.crm.mapper.SysResourceMapper;
 import com.clawhub.crm.service.SysResourceService;
@@ -47,8 +48,8 @@ public class SysResourceServiceImpl implements SysResourceService {
     @Override
     public String view() {
         List<SysResource> list = sysResourceMapper.selectAll();
-        //list --> tree
-        return null;
+
+        return JSONObject.toJSONString(list);
     }
 
     /**
