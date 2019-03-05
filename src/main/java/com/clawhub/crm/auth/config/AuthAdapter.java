@@ -44,14 +44,14 @@ public class AuthAdapter {
 
         filterChainDefinitionMap.put("/auth/logout", "anon");
         filterChainDefinitionMap.put("/auth/login", "anon");
-//        for (SysResource resource : resources) {
-//            logger.info("=======================权限配置开始================================");
-//            logger.info("Size :{}", resources.size());
-//            logger.info("Url() :{}", resource);
-//            logger.info("Permission() :{}", resource.getAuthMark());
-//            filterChainDefinitionMap.put(resource.getUrl(), "perms[" + resource.getAuthMark() + "]");
-//            logger.info("=======================权限配置结束================================");
-//        }
+        for (SysResource resource : resources) {
+            logger.info("=======================权限配置开始================================");
+            logger.info("Size :{}", resources.size());
+            logger.info("Url() :{}", resource);
+            logger.info("Permission() :{}", resource.getAuthMark());
+            filterChainDefinitionMap.put(resource.getUrl(), "perms[" + resource.getAuthMark() + "]");
+            logger.info("=======================权限配置结束================================");
+        }
         // 表示需要认证才可以访问
         filterChainDefinitionMap.put("/**", "authc");
         return filterChainDefinitionMap;
