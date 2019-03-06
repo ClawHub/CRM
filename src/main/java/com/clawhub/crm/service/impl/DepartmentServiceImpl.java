@@ -1,5 +1,6 @@
 package com.clawhub.crm.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.clawhub.crm.entity.Department;
 import com.clawhub.crm.mapper.DepartmentMapper;
 import com.clawhub.crm.service.DepartmentService;
@@ -41,8 +42,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public String view() {
         List<Department> list = departmentMapper.selectAll();
-        //list --> tree
-        return null;
+        return JSONObject.toJSONString(list);
     }
 
     /**
